@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'au.com.dius.pact' version '4.1.8'
+}
+
+group = 'io.github.rjs5613.contract.consumer'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'au.com.dius', name: 'pact-jvm-consumer-junit5', version: '4.0.10'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+pact {
+    publish {
+        pactDirectory = file("$buildDir/pacts")
+        pactBrokerUrl = 'http://localhost:9292'
+        consumerVersion = '1.0'
+    }
+}
+
+tasks.named('pactPublish') {
+    dependsOn clean, test
+}

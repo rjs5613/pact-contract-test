@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'au.com.dius.pact' version '4.1.8'
+    id 'au.com.dius.pact' version '4.6.2'
 }
 
 group = 'io.github.rjs5613.contract.provider'
@@ -16,23 +16,23 @@ pact {
     }
     serviceProviders {
         service0 {
-            protocol = 'http'
-            host = 'localhost'
-            port = 8080
+            protocol = 'https'
+            host = 'https://d47d9105-40d8-4d87-8352-90e13d7fe0d8.mock.pstmn.io'
+            port = 443
             path = '/'
             version = '1.0'
         }
         service1 {
-            protocol = 'http'
-            host = 'localhost'
-            port = 8081
+            protocol = 'https'
+            host = 'https://4cfc2c20-9131-49a7-a5d8-792538fc6d85.mock.pstmn.io'
+            port = 443
             path = '/'
             version = '1.0'
         }
         service2 {
-            protocol = 'http'
-            host = 'localhost'
-            port = 8082
+            protocol = 'https'
+            host = 'https://6f0ddccb-a234-4194-973d-3b23955213c7.mock.pstmn.io'
+            port = 443
             path = '/'
             version = '1.0'
         }
